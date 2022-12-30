@@ -73,7 +73,14 @@ def route_del():
             "msg": "require more parameter"
         })
 
+    if key not in dict.keys():
+        return jsonify({
+            "code": "404",
+            "msg": "key not found"
+        })
+
     dict.pop(key)
+
     return jsonify({
         "code": "200",
         "msg": "deleted successfully"
