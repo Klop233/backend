@@ -32,7 +32,7 @@ def route_get():  # put application's code here
 def route_get_all():
     return jsonify({
         "code": 200,
-        "data": dict
+        "data": str(dict)
     })
 
 
