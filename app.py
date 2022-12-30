@@ -27,6 +27,13 @@ def route_get():  # put application's code here
         "data": dict[key]
     })
 
+@app.route('/getAll')
+def route_get_all():
+    return jsonify({
+        "code": 200,
+        "data": dict
+    })
+
 
 if __name__ == '__main__':
     app.run()
