@@ -22,7 +22,7 @@ def request_parse(req_data):
     return data
 
 
-@app.route('/get', methods=["GET", "PORT"])
+@app.route('/get', methods=["GET", "POST"])
 def route_get():  # put application's code here
     key = request.args.get("key")
     if key not in dict.keys():
@@ -37,7 +37,7 @@ def route_get():  # put application's code here
     })
 
 
-@app.route('/getAll', methods=["GET", "PORT"])
+@app.route('/getAll', methods=["GET", "POST"])
 def route_get_all():
     return jsonify({
         "code": 200,
@@ -45,7 +45,7 @@ def route_get_all():
     })
 
 
-@app.route('/set', methods=["GET", "PORT"])
+@app.route('/set', methods=["GET", "POST"])
 def route_set():
     data = request_parse(request)
     key = data.get("key")
@@ -63,7 +63,7 @@ def route_set():
     })
 
 
-@app.route('/del', methods=["GET", "PORT"])
+@app.route('/del', methods=["GET", "POST"])
 def route_del():
     data = request_parse(request)
     key = data.get("key")
