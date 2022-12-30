@@ -9,7 +9,8 @@ CORS(app, supports_credentials=True)
 
 dict = {
     "Klop233": "23333",
-    "dad": "114514"
+    "dad": "114514",
+    "gqh": "666"
 }
 
 
