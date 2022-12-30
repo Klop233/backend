@@ -14,6 +14,14 @@ dict = {
 }
 
 
+def request_parse(req_data):
+    if req_data.method == 'POST':
+        data = req_data.json
+    elif req_data.method == 'GET':
+        data = req_data.args
+    return data
+
+
 @app.route('/get')
 def route_get():  # put application's code here
     key = request.args.get("key")
@@ -34,6 +42,41 @@ def route_get_all():
     return jsonify({
         "code": 200,
         "data": str(dict)
+    })
+
+
+@app.route('/set')
+def route_set():
+    data = request_parse(request)
+    key = data.get("key")
+    value = data.get("value")
+    if key is None or value is None:
+        return jsonify({
+            "code": "405",
+            "msg": "require more parameter"
+        })
+
+    dict[key] = value
+    return jsonify({
+        "code": "200",
+        "msg": "set successfully"
+    })
+
+
+@app.route('/del')
+def route_del():
+    data = request_parse(request)
+    key = data.get("key")
+    if key is None:
+        return jsonify({
+            "code": "405",
+            "msg": "require more parameter"
+        })
+
+    dict.pop(key)
+    return jsonify({
+        "code": "200",
+        "msg": "deleted successfully"
     })
 
 
