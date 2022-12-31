@@ -86,6 +86,13 @@ def route_del():
         "msg": "deleted successfully"
     })
 
+@app.route('/cleanAll', methods=["GET", "POST"])
+def route_clean_all:
+    dict = {}
+    return jsonify({
+        "code": 200,
+        "message": "success"
+    })
 
 if __name__ == '__main__':
     app.run()
