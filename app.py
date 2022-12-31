@@ -87,7 +87,7 @@ def route_del():
     })
 
 @app.route('/cleanAll', methods=["GET", "POST"])
-def route_clean_all:
+def route_clean_all():
     dict = {}
     return jsonify({
         "code": 200,
